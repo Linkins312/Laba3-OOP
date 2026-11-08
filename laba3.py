@@ -79,8 +79,6 @@ class Car:
         self.__speed += 20
         print(f" Тюнинг применён! Новая скорость: {self.__speed} км/ч")
 
-        asdasdasdasadad
-
 if __name__ == "__main__":
   
     car1 = Car("Toyota", "Camry", 2020, "Чёрный", speed=0, fuel=80)
