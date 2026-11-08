@@ -74,3 +74,45 @@ class Car:
             print(f" Дальше проедет: {other.brand} (разница: {other_distance - my_distance:.1f} км)")
         else:
             print(" Автомобили имеют одинаковый запас хода!")
+
+if __name__ == "__main__":
+  
+    car1 = Car("Toyota", "Camry", 2020, "Чёрный", speed=0, fuel=80)
+    car2 = Car("BMW", "X5", 2022, "Белый", speed=0, fuel=60)
+    car3 = Car("Lada", "Vesta", 2023, "Красный", speed=0, fuel=40)
+ 
+    print("Информация об авто")
+    car1.display_info()
+    car2.display_info()
+    car3.display_info()
+
+    print("\n Поездки")
+    car1.drive(200)
+    car2.drive(150)
+    car3.drive(100)
+
+    print("\n Заправка авто")
+    car3.refuel(30)
+    car3.display_info()
+ 
+    print("\n Результаты сравнения")
+    car1.compare_with(car2)
+    car2.compare_with(car3)
+
+    print("\n Задача")
+    cars = [car1, car2, car3]
+    best_car = max(cars, key=lambda c: c.calculate_max_distance())
+    print(f"Дальше всех проедет: {best_car.brand} {best_car.model}")
+    print(f"   Запас хода: {best_car.calculate_max_distance():.1f} км")
+    
+    # Проверка инвариантов
+    print("\n Проверка Вариантов")
+    try:
+        car1.speed = -10
+    except ValueError as e:
+        print(f" Ошибка: {e}")
+    
+    try:
+        car1.fuel = 150
+    except ValueError as e:
+        print(f" Ошибка: {e}")
